@@ -162,6 +162,85 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/19/ML-Tensorflow-start/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/IMG_7377.jpg">
+      <meta itemprop="name" content="Z Li">
+      <meta itemprop="description" content="Future Is Now">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zli's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/12/19/ML-Tensorflow-start/" class="post-title-link" itemprop="url">ML Tensorflow start</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-12-19 01:12:22 / Modified: 02:08:20" itemprop="dateCreated datePublished" datetime="2021-12-19T01:12:22+00:00">2021-12-19</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>This is about environment configuration and a very first example.</p>
+<h2 id="Normal-Way"><a href="#Normal-Way" class="headerlink" title="Normal Way"></a>Normal Way</h2><p>1.Install Anaconda<br>2.Activate the tensorflow environment</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source activate tensorflow</span><br></pre></td></tr></table></figure>
+<p>3.Create Tensorflow environment</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n tensorflow python=3.x</span><br></pre></td></tr></table></figure>
+<p>4.Install</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install tensorflow</span><br></pre></td></tr></table></figure>
+
+<h2 id="If-use-apple-silicon-error-”zsh-illegal-hardware-instruction”"><a href="#If-use-apple-silicon-error-”zsh-illegal-hardware-instruction”" class="headerlink" title="If use apple silicon (error:”zsh: illegal hardware instruction”)"></a>If use apple silicon (error:”zsh: illegal hardware instruction”)</h2><p>1.Activate the tensorflow environment</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source activate tensorflow</span><br></pre></td></tr></table></figure>
+<p>2.Create Tensorflow environment</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n tensorflow python=3.x</span><br></pre></td></tr></table></figure>
+<p>3.Using Conda rather than pip</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install tensorflow-mkl</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Very-First-Example"><a href="#Very-First-Example" class="headerlink" title="Very First Example"></a>Very First Example</h2><p>Pycharm interpreter: Py 3.x (tensorflow) ~/opt/ana3/envs/tf/bin/py.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf                                  # import tensorflow</span><br><span class="line">mnist = tf.keras.datasets.mnist # load dataset</span><br><span class="line">(x_train, y_train), (x_test, y_test) = mnist.load_data() # convert int to float</span><br><span class="line">x_train, x_test = x_train / 255.0, x_test / 255.0</span><br><span class="line">model = tf.keras.models.Sequential([</span><br><span class="line">  tf.keras.layers.Flatten(input_shape=(28, 28)),</span><br><span class="line">  tf.keras.layers.Dense(128, activation=&#x27;relu&#x27;),</span><br><span class="line">  tf.keras.layers.Dropout(0.2),</span><br><span class="line">  tf.keras.layers.Dense(10, activation=&#x27;softmax&#x27;)</span><br><span class="line">])                                                       # combine muti-layers to establish model.  </span><br><span class="line">model.compile(optimizer=&#x27;adam&#x27;,</span><br><span class="line">              loss=&#x27;sparse_categorical_crossentropy&#x27;,</span><br><span class="line">              metrics=[&#x27;accuracy&#x27;])                      # select optimizer and loss functions</span><br><span class="line">model.fit(x_train, y_train, epochs=5)</span><br><span class="line">model.evaluate(x_test,  y_test, verbose=2)               # training and test</span><br></pre></td></tr></table></figure>
+
+<p>Results<br>This training has 5 epoch and final the recognition accuracy is 97.72%.<br><img src="/im/1219.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/17/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -285,9 +364,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">posts</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span>
       </div>
   </nav>
 </div>
