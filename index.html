@@ -187,7 +187,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-12-19 01:12:22 / Modified: 02:08:20" itemprop="dateCreated datePublished" datetime="2021-12-19T01:12:22+00:00">2021-12-19</time>
+              <time title="Created: 2021-12-19 01:12:22 / Modified: 02:15:20" itemprop="dateCreated datePublished" datetime="2021-12-19T01:12:22+00:00">2021-12-19</time>
             </span>
 
           
@@ -221,7 +221,7 @@
 <h2 id="Very-First-Example"><a href="#Very-First-Example" class="headerlink" title="Very First Example"></a>Very First Example</h2><p>Pycharm interpreter: Py 3.x (tensorflow) ~/opt/ana3/envs/tf/bin/py.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf                                  # import tensorflow</span><br><span class="line">mnist = tf.keras.datasets.mnist # load dataset</span><br><span class="line">(x_train, y_train), (x_test, y_test) = mnist.load_data() # convert int to float</span><br><span class="line">x_train, x_test = x_train / 255.0, x_test / 255.0</span><br><span class="line">model = tf.keras.models.Sequential([</span><br><span class="line">  tf.keras.layers.Flatten(input_shape=(28, 28)),</span><br><span class="line">  tf.keras.layers.Dense(128, activation=&#x27;relu&#x27;),</span><br><span class="line">  tf.keras.layers.Dropout(0.2),</span><br><span class="line">  tf.keras.layers.Dense(10, activation=&#x27;softmax&#x27;)</span><br><span class="line">])                                                       # combine muti-layers to establish model.  </span><br><span class="line">model.compile(optimizer=&#x27;adam&#x27;,</span><br><span class="line">              loss=&#x27;sparse_categorical_crossentropy&#x27;,</span><br><span class="line">              metrics=[&#x27;accuracy&#x27;])                      # select optimizer and loss functions</span><br><span class="line">model.fit(x_train, y_train, epochs=5)</span><br><span class="line">model.evaluate(x_test,  y_test, verbose=2)               # training and test</span><br></pre></td></tr></table></figure>
 
-<p>Results<br>This training has 5 epoch and final the recognition accuracy is 97.72%.<br><img src="/im/1219.png"></p>
+<p>Results<br>This training has 5 epoches and the final recognition accuracy is 97.72%.<br><img src="/im/1219.png"></p>
 
       
     </div>
